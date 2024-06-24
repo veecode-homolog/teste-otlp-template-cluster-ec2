@@ -1,0 +1,25 @@
+values:
+  ## Cluster configuration
+  cluster_name: cluster-teste-otlp-template-2
+  cluster_public_ip: 3.229.43.216
+  domain: vkpr.platform.vee.codes
+  ingress_type: kong
+  certManagerEmail: 
+  certManagerIssuerType: 
+
+  ## Observability configuration
+  instrumentation_namespace: vkpr
+  alert_manager: true
+  togle_remote_write: true
+  prometheus_endpoint: https://prometheus.apr.vee.codes
+  grafana_endpoint: https://grafana.apr.vee.codes
+  ## Publish configuration
+  host: github.com
+  destination: veecode-homolog/teste-otlp-template-cluster-ec2
+  specPublish: ${{ parameters.specPublish | parseRepoUrl | pick('owner') }}/${{ parameters.specPublish | parseRepoUrl | pick('repo') }}
+  specPublishRepo: ${{ parameters.specPublish | parseRepoUrl | pick('repo') }}
+  specPublishBranch: 
+  specTags: 
+  owner: group:default/admin
+  repoUrl: 
+  componentId: teste-otlp-template-cluster-ec2

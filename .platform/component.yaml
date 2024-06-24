@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "teste-otlp-template-cluster-ec2"
+  annotations:
+    github.com/project-slug: veecode-homolog/teste-otlp-template-cluster-ec2
+    backstage.io/techdocs-ref: dir:..
+    vault.io/secrets-path: devportal
+spec:
+  type: devops
+  lifecycle: experimental
+  owner: "group:default/admin"
