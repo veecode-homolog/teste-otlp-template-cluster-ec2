@@ -125,29 +125,7 @@ jobs:
 
       - name: Apply OpenTelemetry auto-instrumentation
         run: |
-          kubectl apply -f - <<EOF
-          apiVersion: opentelemetry.io/v1alpha1
-          kind: Instrumentation
-          metadata:
-            name: instrumentation
-            namespace: $INSTRUMENTATION_NAMESPACE
-          spec:
-            exporter:
-              endpoint: http://otel-collector.vkpr:4318
-            propagators:
-              - tracecontext
-              - baggage
-              - b3
-            sampler:
-              type: parentbased_traceidratio
-              argument: "0.25"
-            java:
-              image: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-java:latest
-            nodejs:
-              image: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-nodejs:latest
-            python:
-              image: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-python:latest
-          EOF
+          kubectl apply -f instrumentation.yaml -n $INSTRUMENTATION_NAMESPACE
 
       - name: Configure VKPR Prometheus prefix and labels
         shell: bash
