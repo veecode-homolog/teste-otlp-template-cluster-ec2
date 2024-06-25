@@ -66,7 +66,7 @@ jobs:
 
       - name: Install OpenTelemetry Collector
         run: |
-          helm upgrade --install opentelemetry-operator open-telemetry/opentelemetry-operator --wait --version 0.63.1 -n vkpr --create-namespace \
+          helm upgrade --install opentelemetry-operator opentelemetry-helm/opentelemetry-operator --wait --version 0.63.1 -n vkpr --create-namespace \
           --set "manager.collectorImage.repository=otel/opentelemetry-collector-k8s" \
           --set admissionWebhooks.certManager.enabled=false \
           --set admissionWebhooks.autoGenerateCert.enabled=true              
