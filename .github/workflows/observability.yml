@@ -121,19 +121,7 @@ jobs:
 
       - name: Configure Kong OpenTelemetry plugin
         run: |
-          kubectl apply -f - <<EOF
-          apiVersion: configuration.konghq.com/v1
-          kind: KongClusterPlugin
-          metadata:
-            name: global-opentelemetry
-            annotations:
-              kubernetes.io/ingress.class: kong
-            labels:
-              global: "true"
-          config: 
-            endpoint: "http://otel-collector.vkpr:4318/v1/traces"
-          plugin: opentelemetry
-          EOF          
+          kubectl apply -f kong-opentelemetry.yaml    
 
       - name: Apply OpenTelemetry auto-instrumentation
         run: |
