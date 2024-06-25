@@ -43,7 +43,12 @@ jobs:
           done
           echo "Cluster Ready!"
           echo "Host=$HOST" >> $GITHUB_ENV
-
+          
+      - name: Write secret to file
+        run: |
+          echo "${{ secrets.KEYPAIR }}" > cert.pem
+          chmod 600 cert.pem
+          
       - name: Generate kube config with k3s  		
         run: |
           HOST=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=cluster-teste-otlp-template-2'  --output text --query 'Reservations[*].Instances[*].PublicIpAddress'`
