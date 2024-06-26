@@ -1,6 +1,6 @@
 global:
   domain: vkpr.platform.vee.codes
-  ingressClassName: 
+  ingressClassName: kong
   secure: true
   provider: aws
 
