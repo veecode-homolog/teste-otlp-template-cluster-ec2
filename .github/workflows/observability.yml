@@ -126,6 +126,7 @@ jobs:
 
       - name: Apply OpenTelemetry auto-instrumentation
         run: |
+          sleep 5        
           kubectl apply -f instrumentation.yaml -n $INSTRUMENTATION_NAMESPACE
 
       - name: Configure VKPR Prometheus prefix and labels
