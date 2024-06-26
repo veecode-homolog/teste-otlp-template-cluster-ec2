@@ -71,7 +71,6 @@ jobs:
             --set admissionWebhooks.certManager.enabled=false \
             --set admissionWebhooks.autoGenerateCert.enabled=true  
            
-
       - name: Add Jaeger Helm repository
         run: |
           helm repo add jaeger-all-in-one https://raw.githubusercontent.com/hansehe/jaeger-all-in-one/master/helm/charts
